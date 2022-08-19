@@ -30,26 +30,26 @@
         </ul>
       </header>
       <main>
-        <ul>
+        <ul class="card-container">
           <!-- photo card -->
-          <li class="cards">
-            <div class="cards-img-container">
+          <li class="card">
+            <div class="card-img-container">
               <img
                 src="https://cdn.pixabay.com/photo/2020/01/16/17/32/pokemon-4771238_960_720.jpg"
                 alt="dummy-image"
               />
             </div>
-            <div class="cards-info">
+            <div class="card-info">
               <span class="title">image title</span>
             </div>
-            <div class="cards-delete">
+            <div class="card-delete">
               <button>X</button>
             </div>
           </li>
 
           <!-- video card -->
-          <li class="cards">
-            <div class="cards-iframe-container">
+          <li class="card">
+            <div class="card-iframe-container">
               <iframe
                 width="560"
                 height="315"
@@ -60,21 +60,21 @@
                 allowfullscreen
               ></iframe>
             </div>
-            <div class="cards-info">
+            <div class="card-info">
               <span class="title">image title</span>
             </div>
-            <div class="cards-delete">
+            <div class="card-delete">
               <button>X</button>
             </div>
           </li>
 
           <!-- node card -->
-          <li class="cards">
-            <div class="cards-info">
+          <li class="card">
+            <div class="card-info">
               <span class="title">image title</span>
               <p class="description">Note today</p>
             </div>
-            <div class="cards-delete">
+            <div class="card-delete">
               <button>X</button>
             </div>
           </li>
@@ -91,7 +91,7 @@
         <button class="close-btn">X</button>
       </header>
       <form class="form-container" action="#">
-        <div class="form-input">
+        <div class="form-input form-input-title">
           <label for="title">Title</label>
           <input type="text" />
         </div>
@@ -99,10 +99,9 @@
           <label for="url">URL</label>
           <input type="text" />
         </div>
-      </form>
-      <footer>
         <button class="submit-btn" type="submit">ADD</button>
-      </footer>
+      </form>
+      <footer></footer>
 
       <!-- 할 일 추가
     <div class="form-box">

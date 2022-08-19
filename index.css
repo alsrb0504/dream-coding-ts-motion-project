@@ -77,9 +77,9 @@ main ul {
 }
 
 /*
-  main section common cards setting
+  main section common card setting
 */
-main ul .cards {
+main ul .card {
   display: flex;
   width: 100%;
   min-height: 120px;
@@ -89,29 +89,29 @@ main ul .cards {
   box-shadow: 2px 2px 2px 2px var(--shadow-color);
 }
 
-main ul .cards .cards-info {
+main ul .card .card-info {
   flex: 1;
   padding: 16px;
 }
 
-main ul .cards .cards-info .title {
+main ul .card .card-info .title {
   display: inline-block;
   color: var(--text-accent-color);
   font-weight: 600;
   margin-bottom: 16px;
 }
 
-main ul .cards .cards-info .description {
+main ul .card .card-info .description {
   color: var(--smokywhite);
   font-weight: 600;
 }
 
-main ul .cards .cards-delete {
+main ul .card .card-delete {
   display: flex;
   align-items: center;
 }
 
-main ul .cards .cards-delete button {
+main ul .card .card-delete button {
   background-color: transparent;
   outline: none;
   border: none;
@@ -121,26 +121,26 @@ main ul .cards .cards-delete button {
 }
 
 /*
-  main section image cards
+  main section image card
 */
-main ul .cards .cards-img-container {
+main ul .card .card-img-container {
   width: 60%;
   height: 240px;
 }
-main ul .cards .cards-img-container img {
+main ul .card .card-img-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 /*
-  main section text cards
+  main section text card
 */
-main ul .cards .cards-iframe-container {
+main ul .card .card-iframe-container {
   width: 60%;
   height: 240px;
 }
-main ul .cards .cards-iframe-container iframe {
+main ul .card .card-iframe-container iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
