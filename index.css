@@ -126,7 +126,7 @@ main ul .cards .cards-img-container img {
 }
 
 /*
-  main section video cards
+  main section text cards
 */
 main ul .cards .cards-iframe-container {
   width: 60%;
@@ -136,4 +136,16 @@ main ul .cards .cards-iframe-container iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/*
+  footer section
+*/
+footer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--smokywhite);
+  font-weight: 600;
 }
