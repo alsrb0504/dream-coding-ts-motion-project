@@ -19,6 +19,30 @@ class btnState {
     }
 }
 const btnClass = new btnState();
+cardContainer === null || cardContainer === void 0 ? void 0 : cardContainer.addEventListener("dragover", () => {
+    console.log("dragover");
+});
+const cards = document.querySelectorAll(".card");
+cards.forEach((card) => {
+    // 삭제 기능
+    const deleteBtn = card.querySelector(".card-delete button");
+    deleteBtn === null || deleteBtn === void 0 ? void 0 : deleteBtn.addEventListener("click", () => {
+        card.remove();
+    });
+    // 드래그 앤 드랍
+    card.setAttribute("draggable", "true");
+    card.addEventListener("dragstart", () => {
+        card.classList.add("dragging");
+    });
+    card.addEventListener("dragend", () => {
+        card.classList.remove("dragging");
+    });
+    card.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        console.log("drop");
+        // console.log(e);
+    });
+});
 /*
   form 여는 함수
 */
@@ -55,6 +79,7 @@ function closeForm() {
 function createCard(title, sub) {
     const newCard = document.createElement("li");
     newCard.setAttribute("class", "card");
+    newCard.setAttribute("draggable", "true");
     const curBtn = btnClass.getBtn();
     if (curBtn === "image-btn") {
         newCard.innerHTML = `
@@ -104,9 +129,18 @@ function createCard(title, sub) {
       </div>
     `;
     }
+    // 삭제 기능 추가
     const deleteBtn = newCard.querySelector(".card-delete button");
     deleteBtn === null || deleteBtn === void 0 ? void 0 : deleteBtn.addEventListener("click", () => {
         newCard.remove();
+    });
+    // 드래그 앤 드롭
+    newCard.addEventListener("dragover", () => {
+        console.log("dragover");
+    });
+    newCard.addEventListener("drop", (e) => {
+        e.preventDefault();
+        console.log("drop");
     });
     cardContainer === null || cardContainer === void 0 ? void 0 : cardContainer.append(newCard);
     closeForm();
@@ -116,8 +150,9 @@ btns.forEach((btn) => {
 });
 overlay === null || overlay === void 0 ? void 0 : overlay.addEventListener("click", closeForm);
 formCloseBtn === null || formCloseBtn === void 0 ? void 0 : formCloseBtn.addEventListener("click", closeForm);
-// 추후 폼 제출로 수정
-// formSubmitBtn?.addEventListener("click", createCard);
+/*
+  새로운 카드 생성 이벤트 등록
+*/
 form === null || form === void 0 ? void 0 : form.addEventListener("submit", (e) => {
     e.preventDefault();
     const input1 = document.querySelector(".form-input-title input");
@@ -131,6 +166,7 @@ form === null || form === void 0 ? void 0 : form.addEventListener("submit", (e) 
         input2 = document.querySelector(".form-input-change textarea");
     }
     createCard(input1.value, input2.value);
-    // console.log(input1.value);
-    // console.log(input2.value);
 });
+// cardContainer?.addEventListener("dragenter", () => {
+//   console.log("drag!!");
+// });

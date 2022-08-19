@@ -26,6 +26,37 @@ class btnState {
 
 const btnClass = new btnState();
 
+cardContainer?.addEventListener("dragover", () => {
+  console.log("dragover");
+});
+
+const cards = document.querySelectorAll(".card");
+cards.forEach((card) => {
+  // 삭제 기능
+  const deleteBtn = card.querySelector(".card-delete button");
+  deleteBtn?.addEventListener("click", () => {
+    card.remove();
+  });
+
+  // 드래그 앤 드랍
+  card.setAttribute("draggable", "true");
+
+  card.addEventListener("dragstart", () => {
+    card.classList.add("dragging");
+  });
+
+  card.addEventListener("dragend", () => {
+    card.classList.remove("dragging");
+  });
+
+  card.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    console.log("drop");
+
+    // console.log(e);
+  });
+});
+
 /*
   form 여는 함수
 */
@@ -67,6 +98,7 @@ function closeForm() {
 function createCard(title: string, sub: string) {
   const newCard: HTMLElement = document.createElement("li");
   newCard.setAttribute("class", "card");
+  newCard.setAttribute("draggable", "true");
 
   const curBtn = btnClass.getBtn();
 
@@ -117,14 +149,23 @@ function createCard(title: string, sub: string) {
     `;
   }
 
+  // 삭제 기능 추가
   const deleteBtn = newCard.querySelector(".card-delete button");
-
   deleteBtn?.addEventListener("click", () => {
     newCard.remove();
   });
 
-  cardContainer?.append(newCard);
+  // 드래그 앤 드롭
+  newCard.addEventListener("dragover", () => {
+    console.log("dragover");
+  });
 
+  newCard.addEventListener("drop", (e) => {
+    e.preventDefault();
+    console.log("drop");
+  });
+
+  cardContainer?.append(newCard);
   closeForm();
 }
 
@@ -135,9 +176,9 @@ btns.forEach((btn) => {
 overlay?.addEventListener("click", closeForm);
 formCloseBtn?.addEventListener("click", closeForm);
 
-// 추후 폼 제출로 수정
-// formSubmitBtn?.addEventListener("click", createCard);
-
+/*
+  새로운 카드 생성 이벤트 등록
+*/
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -163,7 +204,8 @@ form?.addEventListener("submit", (e) => {
   }
 
   createCard(input1.value, input2.value);
-
-  // console.log(input1.value);
-  // console.log(input2.value);
 });
+
+// cardContainer?.addEventListener("dragenter", () => {
+//   console.log("drag!!");
+// });
