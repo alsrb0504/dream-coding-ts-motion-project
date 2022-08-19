@@ -56,19 +56,7 @@ function createCard(title, sub) {
     const newCard = document.createElement("li");
     newCard.setAttribute("class", "card");
     const curBtn = btnClass.getBtn();
-    console.log(curBtn);
-    if (curBtn === "note-btn") {
-        newCard.innerHTML = `
-      <div class="card-info">
-        <span class="title">${title}</span>
-        <p class="description">${sub}</p>
-      </div>
-      <div class="card-delete">
-        <button>X</button>
-      </div>
-    `;
-    }
-    else if (curBtn === "image-btn") {
+    if (curBtn === "image-btn") {
         newCard.innerHTML = `
       <div class="card-img-container">
         <img
@@ -105,6 +93,21 @@ function createCard(title, sub) {
       </div>
     `;
     }
+    else {
+        newCard.innerHTML = `
+      <div class="card-info">
+        <span class="title">${title}</span>
+        <p class="description">${sub}</p>
+      </div>
+      <div class="card-delete">
+        <button>X</button>
+      </div>
+    `;
+    }
+    const deleteBtn = newCard.querySelector(".card-delete button");
+    deleteBtn === null || deleteBtn === void 0 ? void 0 : deleteBtn.addEventListener("click", () => {
+        newCard.remove();
+    });
     cardContainer === null || cardContainer === void 0 ? void 0 : cardContainer.append(newCard);
     closeForm();
 }

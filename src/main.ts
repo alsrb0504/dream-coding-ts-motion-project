@@ -70,19 +70,7 @@ function createCard(title: string, sub: string) {
 
   const curBtn = btnClass.getBtn();
 
-  console.log(curBtn);
-
-  if (curBtn === "note-btn") {
-    newCard.innerHTML = `
-      <div class="card-info">
-        <span class="title">${title}</span>
-        <p class="description">${sub}</p>
-      </div>
-      <div class="card-delete">
-        <button>X</button>
-      </div>
-    `;
-  } else if (curBtn === "image-btn") {
+  if (curBtn === "image-btn") {
     newCard.innerHTML = `
       <div class="card-img-container">
         <img
@@ -117,7 +105,23 @@ function createCard(title: string, sub: string) {
         <button>X</button>
       </div>
     `;
+  } else {
+    newCard.innerHTML = `
+      <div class="card-info">
+        <span class="title">${title}</span>
+        <p class="description">${sub}</p>
+      </div>
+      <div class="card-delete">
+        <button>X</button>
+      </div>
+    `;
   }
+
+  const deleteBtn = newCard.querySelector(".card-delete button");
+
+  deleteBtn?.addEventListener("click", () => {
+    newCard.remove();
+  });
 
   cardContainer?.append(newCard);
 
