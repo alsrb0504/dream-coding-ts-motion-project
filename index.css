@@ -208,6 +208,11 @@ footer {
   flex-direction: column;
 }
 
+.form-box form .form-input {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-box form label {
   margin-bottom: 2px;
   color: var(--text-accent-color);

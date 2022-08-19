@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/colors.css" />
     <link rel="stylesheet" href="/index.css" />
-    <script src="/build/main.js"></script>
+    <script defer src="/build/main.js"></script>
   </head>
   <body>
     <div id="container">
@@ -90,11 +90,15 @@
       <header class="form-box-header">
         <button class="close-btn">X</button>
       </header>
-      <form action="#">
-        <label for="title">Title</label>
-        <input type="text" />
-        <label for="url">URL</label>
-        <input type="text" />
+      <form class="form-container" action="#">
+        <div class="form-input">
+          <label for="title">Title</label>
+          <input type="text" />
+        </div>
+        <div class="form-input form-input-change">
+          <label for="url">URL</label>
+          <input type="text" />
+        </div>
       </form>
       <footer>
         <button class="submit-btn" type="submit">ADD</button>
