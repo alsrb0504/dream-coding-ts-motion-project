@@ -1,0 +1,51 @@
+body {
+  background-color: var(--bg-main-color);
+  background-image: url("https://import.cdn.thinkific.com/292401/background-210125-235634.png");
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
+  max-width: 780px;
+  margin: auto;
+
+  background-color: var(--bg-main-color);
+}
+
+header {
+  color: var(--accent-color);
+  text-align: center;
+}
+
+header h3 {
+  margin: 16px 0;
+
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+header #header-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+header #header-btn-container .header-btn-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 120px;
+  height: 40px;
+  margin-right: 8px;
+
+  color: white;
+  font-weight: 500;
+  background-color: var(--accent-color);
+}
+
+header #header-btn-container .header-btn-item:last-child {
+  margin-right: 0;
+}
