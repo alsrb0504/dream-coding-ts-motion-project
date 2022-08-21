@@ -8,13 +8,13 @@ class App {
         this.page = new PageComponent();
         this.page.attachTo(appRoot);
         const image = new ImageComponent("Image Title", "https://cdn.pixabay.com/photo/2020/01/16/17/32/pokemon-4771238_960_720.jpg");
-        image.attachTo(appRoot, "beforeend");
+        this.page.addChild(image);
         const note = new NoteComponent("Note_title", "note__desc");
-        note.attachTo(appRoot, "beforeend");
+        this.page.addChild(note);
         const todo = new TodoComponent("Todo_title", "todo_body");
-        todo.attachTo(appRoot, "beforeend");
+        this.page.addChild(todo);
         const video = new VideoComponenet("Video_title", "https://www.youtube.com/embed/rJVYb2Ib8DU");
-        video.attachTo(appRoot, "beforeend");
+        this.page.addChild(video);
     }
     addElement(liComponent) {
         this.page.attachTo(liComponent);
