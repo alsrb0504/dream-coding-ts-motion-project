@@ -18,8 +18,6 @@ export class VideoComponenet extends BaseComponent<HTMLElement> {
       ".video__title"
     )! as HTMLHeadElement;
     titleElement.textContent = title;
-
-    console.log(url);
   }
 
   private convertToEmbeddedURL(url: string): string {

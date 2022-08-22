@@ -1,3 +1,4 @@
+import { InputDialog } from "./components/dialog/dialog.js";
 import { ImageComponent } from "./components/page/item/image.js";
 import { NoteComponent } from "./components/page/item/note.js";
 import { TodoComponent } from "./components/page/item/todo.js";
@@ -15,6 +16,19 @@ class App {
         this.page.addChild(todo);
         const video = new VideoComponenet("Video_title", "https://www.youtube.com/embed/rJVYb2Ib8DU");
         this.page.addChild(video);
+        const imageBtn = document.querySelector("#new-image");
+        imageBtn.addEventListener("click", () => {
+            const dialog = new InputDialog();
+            console.log(dialog);
+            console.log(document.body);
+            dialog.setCloseListener(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.setSubmitListener(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.attachTo(document.body);
+        });
     }
     addElement(liComponent) {
         this.page.attachTo(liComponent);

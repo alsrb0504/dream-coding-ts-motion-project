@@ -1,4 +1,5 @@
 import { Component } from "./components/component.js";
+import { InputDialog } from "./components/dialog/dialog.js";
 import { ImageComponent } from "./components/page/item/image.js";
 import { NoteComponent } from "./components/page/item/note.js";
 import { TodoComponent } from "./components/page/item/todo.js";
@@ -32,6 +33,28 @@ class App {
       "https://www.youtube.com/embed/rJVYb2Ib8DU"
     );
     this.page.addChild(video);
+
+    const imageBtn = document.querySelector("#new-image")! as HTMLButtonElement;
+    imageBtn.addEventListener("click", () => {
+      const dialog = new InputDialog();
+
+      console.log(dialog);
+      console.log(document.body);
+
+      // const body = document.querySelector("body")! as HTMLBodyElement;
+      // dialog.attachTo(body);
+
+      dialog.setCloseListener(() => {
+        dialog.removeFrom(document.body);
+      });
+
+      dialog.setSubmitListener(() => {
+        // 섹션 만들어서 페이지에 추가
+        dialog.removeFrom(document.body);
+      });
+
+      dialog.attachTo(document.body);
+    });
   }
 
   addElement(liComponent: HTMLElement) {
