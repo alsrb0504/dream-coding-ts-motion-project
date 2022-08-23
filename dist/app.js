@@ -1,4 +1,4 @@
-import { InputDialog } from "./components/dialog/dialog.js";
+import { InputDialog, } from "./components/dialog/dialog.js";
 import { MediaSectionInput } from "./components/dialog/input/media-input.js";
 import { TextSectionInput } from "./components/dialog/input/text-input.js";
 import { ImageComponent } from "./components/page/item/image.js";
