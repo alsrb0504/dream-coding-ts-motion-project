@@ -57,6 +57,26 @@ class App {
         return new TodoComponent(input.title, input.body);
       }
     );
+
+    // 테스트 아이템
+    const testItem = new TodoComponent("test1", "test1");
+    this.page.addChild(testItem);
+
+    this.page.addChild(
+      new VideoComponenet(
+        "video-Item",
+        "https://www.youtube.com/watch?v=pmCHxrr9Ir4"
+      )
+    );
+
+    const testItem2 = new NoteComponent("test2", "test2");
+    this.page.addChild(testItem2);
+
+    const testItem3 = new ImageComponent(
+      "test3",
+      "https://cdn.pixabay.com/photo/2020/01/16/17/32/pokemon-4771238_960_720.jpg"
+    );
+    this.page.addChild(testItem3);
   }
 
   private bindElementToDialog<T extends (MediaData | TextData) & Component>(
